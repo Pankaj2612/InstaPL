@@ -11,15 +11,18 @@ export default function App() {
     e.preventDefault();
     // setLoading(true);
     try {
-      const response = await axios.post("http://127.0.0.1:5000/extract-audio", {
-        url,
-      });
+      const response = await axios.post(
+        "https://insta-reel-backend.onrender.com/extract-audio",
+        {
+          url,
+        }
+      );
       const data = response.data;
       // Navigate to the /tracks route and pass data via state
       navigate("/tracks", { state: { trackDetails: data.trackDetails } });
     } catch (error) {
       console.error("Error:", error);
-    } 
+    }
     // finally {
     //   setLoading(false); // Set loading to false after request completes
     // }
