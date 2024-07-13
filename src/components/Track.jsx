@@ -49,8 +49,8 @@ export default function Track() {
                   </div>
                   <div className="hidden sm:block">{track.album_name}</div>
                   <div className="text-right sm:text-right">
-                    <span class="hidden sm:inline">{track.duration}</span>
-                    <span class="sm:hidden">
+                    <span className="hidden sm:inline">{track.duration}</span>
+                    <span className="sm:hidden">
                       <svg
                         className="w-[26px] h-[26px] text-white"
                         aria-hidden="true"

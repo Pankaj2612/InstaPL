@@ -12,11 +12,12 @@ export default function App() {
     // setLoading(true);
     try {
       const response = await axios.post(
-        "https://insta-reel-backend.onrender.com/extract-audio",
+        " https://eeee-2401-4900-1c33-8b70-b8d8-47ec-1587-9a6c.ngrok-free.app/extract-audio",
         {
           url,
         }
       );
+      print("posted")
       const data = response.data;
       // Navigate to the /tracks route and pass data via state
       navigate("/tracks", { state: { trackDetails: data.trackDetails } });
