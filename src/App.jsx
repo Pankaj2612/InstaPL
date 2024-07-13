@@ -17,7 +17,6 @@ export default function App() {
           url,
         }
       );
-      print("posted")
       const data = response.data;
       // Navigate to the /tracks route and pass data via state
       navigate("/tracks", { state: { trackDetails: data.trackDetails } });
