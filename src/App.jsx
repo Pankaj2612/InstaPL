@@ -12,7 +12,7 @@ export default function App() {
     // setLoading(true);
     try {
       const response = await axios.post(
-        "https://insta-reel-backend.onrender.com/extract-audio",
+        "https://insta-reel-b-v1-0.onrender.com/extract-audio",
         {
           url,
         }
