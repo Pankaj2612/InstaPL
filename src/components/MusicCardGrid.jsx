@@ -4,27 +4,31 @@ import { redirect, useLocation } from "react-router";
 import axios from "axios";
 
 export default function MusicCardGrid({ trackDetails }) {
-  //handle Create playlist request
-  const handleCreatePlaylist = async (e) => {
+  const handleCreatePlaylist = async () => {
     const track_uri_list = trackDetails.map((track) => track.track_uri);
-    console.log(track_uri_list);
+    // console.log(track_uri_list);
+
     try {
+      // Attempt to create a playlist
       const response = await axios.post(
         "https://insta-reel-b-v1-0.onrender.com/create_playlist",
         {
           name: "New Playlist",
           description: "A playlist",
           uris: track_uri_list,
-        }
+        },
+        { withCredentials: true }
       );
 
       const data = response.data;
       if (data.error) {
-        console.log(`Error: ${data.error}`);
+        if (data.error === "User not logged in") {
+          window.open("https://insta-reel-b-v1-0.onrender.com/login", "_blank");
+        } else {
+          console.log(`Error: ${data.error}`);
+        }
       } else {
         console.log("Success: Playlist created!");
-        // Assuming you have a function to handle redirection
-        // redirect(data.playlist_url);
         window.open(data.playlist_url, "_blank");
         console.log("Redirect to:", data.playlist_url);
       }
@@ -33,8 +37,6 @@ export default function MusicCardGrid({ trackDetails }) {
     }
   };
 
-  // const location = useLocation();
-  // const { trackDetails } = location.state || { trackDetails: [] };
   return (
     <main class="grid place-items-center min-h-screen bg-gradient-to-t from-blue-200 to-indigo-900 p-5">
       <div>
