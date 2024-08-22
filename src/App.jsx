@@ -14,7 +14,7 @@ export default function App() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/extract-audio",
+        "https://insta-reel-b-v1-0.onrender.com/extract-audio",
         {
           url,
         }
