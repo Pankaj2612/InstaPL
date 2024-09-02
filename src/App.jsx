@@ -1,3 +1,5 @@
+document.title = "InstaPL";
+
 import React, { useState } from "react";
 import axios from "axios";
 import MusicCardGrid from "./components/MusicCardGrid";
